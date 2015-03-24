@@ -1,6 +1,7 @@
 .col-md-6.col-md-offset-3
-  %h1 What's in Your Mind!
-
-  =render 'form'
-
-  =link_to "Back",root_path
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1 New Pin
+      .panel-body
+        = render 'form'
