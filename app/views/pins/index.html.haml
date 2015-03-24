@@ -1,4 +1,10 @@
+#pins.transitions-enabled
+  - @pins.each do |pin|
+    .box.panel.panel-default
+      = link_to (image_tag pin.image.url(:medium)),pin
+      .panel-body
+        %h2= link_to pin.title, pin
+        %p.user
+        @Authored By :
+        = pin.user.email
 
-- @pins.each do|pin|
-  =link_to(image_tag  pin.image.url(:medium))
-  %h2= link_to pin.title, pin
