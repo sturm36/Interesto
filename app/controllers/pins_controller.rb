@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   before_action :find_pin, only:[:show,:edit,:update,:destroy,:upvote]
   before_action :authenticate_user!,except:[:index,:show]
   def index
-    @pins = Pin.all.order("created_at Desc")
+    @pins = Pin.all.order("created_at Desc").paginate(page: params[:page], per_page: 9)
   end
 
   def new
@@ -29,7 +29,7 @@ class PinsController < ApplicationController
     @pin.destroy
     redirect_to root_path
   end
-  def upvote
+  def upvote_by
     @pin.upvote_by current_user
     redirect_to :back
   end
